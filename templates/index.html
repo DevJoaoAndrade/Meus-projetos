@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <title>Formulário de Cadastro</title>
-    <script>
-        function toggleFields() {
-            var tipo = document.getElementById('tipo').value;
-            document.getElementById('fisica').style.display = tipo == 'fisica' ? 'block' : 'none';
-            document.getElementById('juridica').style.display = tipo == 'juridica' ? 'block' : 'none';
-        }
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 
 <body>
