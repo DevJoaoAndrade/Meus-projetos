@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulário de Cadastro</title>
-    <script src="{{ url_for('static', filename='js/toggle_fields.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/buscar_cep.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/selecao-tipo-pessoa.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/buscar-cep.js') }}" defer></script>
 </head>
 
 <body>
     <h1>Formulário de Cadastro</h1>
     <form action="/submit" method="post">
         <label for="tipo">Tipo:</label>
-        <select id="tipo" name="tipo" onchange="toggleFields()" required>
+        <select id="tipo" name="tipo" onchange="selecaoTipoPessoa()" required>
             <option value="">Selecione</option>
             <option value="fisica">Pessoa Física</option>
             <option value="juridica">Pessoa Jurídica</option>

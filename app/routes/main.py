@@ -9,6 +9,8 @@ main_bp = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
+# rota para a api de buscar cep em uma aplicação externa
+
 
 @main_bp.route('/buscar_cep', methods=['GET'])
 def buscar_cep():
