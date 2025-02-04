@@ -1,15 +1,16 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Blueprint, Flask, render_template, request, jsonify
 import requests
 
-app = Flask(__name__)
+# criando um Blueprint para as rotas principais
+main_bp = Blueprint('main', __name__)
 
 
-@app.route('/')
+@main_bp.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/buscar_cep', methods=['GET'])
+@main_bp.route('/buscar_cep', methods=['GET'])
 def buscar_cep():
     cep = request.args.get('cep')
     if not cep:
@@ -25,7 +26,7 @@ def buscar_cep():
     return jsonify({"erro": "Erro ao buscar o CEP"}), 500
 
 
-@app.route('/submit', methods=['POST'])
+@main_bp.route('/submit', methods=['POST'])
 def submit():
     nome = request.form['nome']
     tipo = request.form['tipo']
@@ -35,7 +36,3 @@ def submit():
     else:
         cnpj = request.form['cnpj']
         return f"Cadastro de pessoa jurídica: {nome}, CNPJ: {cnpj}"
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
